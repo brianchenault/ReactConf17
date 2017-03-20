@@ -17,6 +17,10 @@ import {
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 
+import images from './images'
+
+preloader(images);
+
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
 
@@ -34,6 +38,17 @@ const theme = createTheme({
   secondary: "Helvetica"
 });
 
+const imageContainerStyle3 = {
+  width: '800px',
+  height: 'auto',
+};
+
+const imageStyle = {
+  width: '100%',
+  height: '100%',
+  webkitBorderRadius: '10px'
+};
+
 export default class Presentation extends React.Component {
   constructor(props) {
     super(props)
@@ -41,10 +56,6 @@ export default class Presentation extends React.Component {
       playMusic: true
     }
   }
-
-  // What?
-  // Why? / Benefits
-  // Who uses it
 
   render() {
     return (
@@ -64,6 +75,22 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["fade"]} bgColor="tertiary">
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+              <div style={{ height: 'auto', width: '500px', margin: '0 auto'}}>
+                <img src={images.reactconf2} style={{ width: '100%'}} />
+              </div>
+            </div>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor="tertiary">
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+              <div>
+                <img src={images.reactconf} style={imageStyle} />
+              </div>
+            </div>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor="tertiary">
             <Heading size={6} textColor="primary">What is React?</Heading>
           </Slide>
 
@@ -73,7 +100,6 @@ export default class Presentation extends React.Component {
               <Cite>https://facebook.github.io/react/</Cite>
             </BlockQuote>
           </Slide>
-
 
           <Slide transition={["fade"]} bgColor="tertiary">
             <Text size={1} textColor="primary">
